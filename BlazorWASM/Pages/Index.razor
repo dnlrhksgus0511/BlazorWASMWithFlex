@@ -29,25 +29,35 @@
         }
         private async Task GetReturnObject()
         {
-            var a = await SomePromiseCall();
-            ReturnValue = a;
+            var a = await GetJSFuc<string>("CallPromise");
         }
 
-        private Task<string> SomePromiseCall()
+        private Task<T> GetJSFuc<T>(string funcNm, Array arguments = null)
         {
-            var tcs = new TaskCompletionSource<string>();
-            var promiseHandler = DotNetObjectReference.Create<PromiseHandler>(new PromiseHandler() { tcs = tcs });
-            JSRuntime.InvokeAsync<object>("WithPromise", promiseHandler);
+            var tcs = new TaskCompletionSource<T>();
+            var promiseHandler = DotNetObjectReference.Create<PromiseHandler<T>>(new PromiseHandler<T>() { tcs = tcs });
+            JSRuntime.InvokeAsync<object>(funcNm, promiseHandler);
 
             return tcs.Task;
         }
 
-        public class PromiseHandler
+
+
+        //private Task<string> CallPromise()
+        //{
+        //    var tcs = new TaskCompletionSource<string>();
+        //    var promiseHandler = DotNetObjectReference.Create<PromiseHandler>(new PromiseHandler() { tcs = tcs });
+        //    JSRuntime.InvokeAsync<object>("CallPromise", promiseHandler);
+
+        //    return tcs.Task;
+        //}
+
+        public class PromiseHandler<T>
         {
-            public TaskCompletionSource<string> tcs { get; set; }
+            public TaskCompletionSource<T> tcs { get; set; }
 
             [JSInvokable]
-            public void SetResult(string json)
+            public void SetResult(T json)
             {
                 tcs.SetResult(json);
             }

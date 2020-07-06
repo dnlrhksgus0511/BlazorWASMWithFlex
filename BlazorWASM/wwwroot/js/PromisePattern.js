@@ -49,7 +49,7 @@ async function PhotoByDeviceRatio(promiseHandler) {
         console.log(result)
     } else {
         var imgTag = document.createElement("img")
-        imgTag.src = result;
+        imgTag.src = result.data;
         var imgDiv = document.getElementById('photos');
         imgDiv.appendChild(imgTag)
     }
@@ -62,7 +62,7 @@ async function PhotoByRatio(promiseHandler) {
         console.log(result)
     } else {
         var imgTag = document.createElement("img")
-        imgTag.src = result;
+        imgTag.src = result.data;
         var imgDiv = document.getElementById('photos');
         imgDiv.appendChild(imgTag)
     }
@@ -77,7 +77,7 @@ async function MultiPhotoByDeviceRatio(promiseHandler) {
         console.log('Return by Native with MultiplePhotos   : ' + result.length)
         for (var i = 0; i < result.length; i++) {
             var imgTag = document.createElement("img")
-            imgTag.src = result[i];
+            imgTag.src = result[i].data;
             var imgDiv = document.getElementById('photos');
             imgDiv.appendChild(imgTag)
         }
@@ -94,7 +94,7 @@ async function MultiPhotoByRatio(promiseHandler) {
         console.log('Return by Native with MultiplePhotos   : ' + result.length)
         for (var i = 0; i < result.length; i++) {
             var imgTag = document.createElement("img")
-            imgTag.src = result[i];
+            imgTag.src = result[i].data;
             var imgDiv = document.getElementById('photos');
             imgDiv.appendChild(imgTag)
         }

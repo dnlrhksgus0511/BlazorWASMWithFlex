@@ -13,17 +13,66 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <!--<link href="css/app.css" rel="stylesheet" />-->
     <base href="/" />
+    <style>
+        /* This CSS is specific to the current HTML.
+            Note that this snippet only contains the necessary changes and not the full Blazor app template */
+        .loading-section {
+            text-align: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
+            .loading-section h2 {
+                color: #00b5dc;
+            }
+
+        .loader-dot {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #00b5dc;
+            display: inline-block;
+            -webkit-animation: grow 2.1s infinite ease-in-out both;
+            animation: grow 2.1s infinite ease-in-out both;
+        }
+
+            .loader-dot.dot1 {
+                -webkit-animation-delay: -0.96s;
+                animation-delay: -0.96s;
+            }
+
+            .loader-dot.dot2 {
+                -webkit-animation-delay: -0.48s;
+                animation-delay: -0.48s;
+            }
+
+        @-webkit-keyframes grow {
+            0%, 80%, 100% {
+                -webkit-transform: scale(0)
+            }
+
+            40% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <app>로딩중~!</app>
+    <app>
+        <div class="loading-section">
+            <h2>로딩중입니다.</h2>
+            <div class="short-description">로딩로딩...</div>
+            <div class="loader mt-5">
+                <div class="loader-dot dot1"></div>
+                <div class="loader-dot dot2"></div>
+                <div class="loader-dot dot3"></div>
+            </div>
+        </div>
+    </app>
 
-    <div id="blazor-error-ui">
-        Catch 되지 않은 에러 발생
-        <a href="" class="reload">새로고침</a>
-        <a class="dismiss">🗙</a>
-    </div>
     <script src="_framework/blazor.webassembly.js"></script>
 
 

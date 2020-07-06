@@ -202,7 +202,7 @@ async function Notification(promiseHandler) {
             , "subTitle": "서브타이틀"
             , "message": "Body메시지입니다."
             , "badge": 0
-            , "identifier": "이아연이식별자임"
+            , "identifier": "testtest"
             , "isRepeat": false
             , "duration": 0
         }
@@ -240,30 +240,33 @@ async function LocalRepository(promiseHandler) {
 }
 
 async function UniqueAppID(promiseHandler) {
+    let result = null;
     try {
-        const result = await $flex.UniqueAppID();
+        result = await $flex.UniqueAppID();
         console.log('Return by Native with UniqueAppID   : ' + result)
     } catch {
         consoel.log('UniqueAppID() error 발생')
     }finally {
-        promiseHandler.invokeMethodAsync('SetResult', "");
+        promiseHandler.invokeMethodAsync('SetResult', result);
     }
 }
 
 async function UniqueDeviceID(promiseHandler) {
+    let result = null;
     try {
-        const result = await $flex.UniqueDeviceID();
+        result = await $flex.UniqueDeviceID();
         console.log('Return by Native with UniqueDeviceID   : ' + result)
     } catch {
         consoel.log('UniqueDeviceID() error 발생')
     } finally {
-        promiseHandler.invokeMethodAsync('SetResult', "");
+        promiseHandler.invokeMethodAsync('SetResult', result);
     }
 }
 
 async function WebPopup(promiseHandler) {
+    let result = null;
     try {
-        const result = await $flex.WebPopup("https://www.naver.com", 0.8);
+        result = await $flex.WebPopup("https://www.naver.com", 0.8);
         console.log('Return by Native with WebPopup   : ' + result)
     } catch {
         consoel.log('WebPopup() error 발생')

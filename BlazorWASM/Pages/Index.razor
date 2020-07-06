@@ -2,35 +2,37 @@
 @inject IJSRuntime JSRuntime;
 
 
-<body style="width: 100%;margin-bottom:10px;">
-    <div id="photos"></div>
-    <div id='attachFile' style="background-color : blue;">
-        <input type='file' id='fileName' style="width: 100%;margin-bottom:10px; height: 100px; font-size : 15px; text-align:center;" />
-    </div>
-    <button @onclick="ShortToast" style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info"> ShortToast</button>
-    <button @onclick="LongToast"  style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info"> LongToast</button>
-    <button @onclick="WebPopup"   style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info"> Popup</button>
+    <body style="width: 100%;margin-bottom:10px;">
+        <div class="form-group" id='attachFile' style="height:50px;margin:10px 10px 10px 10px">
+            <input type='file' id='fileName' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px; text-align:center;" />
+        </div>
+        <div style="width: 100%" class="btn-group-vertical">
+            <button @onclick="ShortToast" style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary"> ShortToast</button>
+            <button @onclick="LongToast" style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary"> LongToast</button>
+            <button @onclick="WebPopup" style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary"> Popup</button>
 
-    <button @onclick='CameraByDeviceRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">CameraByDeviceRatio</button>
-    <button @onclick='CameraByRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">CameraByRatio</button>
-    <button @onclick='PhotoByDeviceRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">PhotoByDeviceRatio</button>
-    <button @onclick='PhotoByRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">PhotoByRatio</button>
-    <button @onclick='MultiPhotoByDeviceRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">MultiPhotoByDeviceRatio</button>
-    <button @onclick='MultiPhotoByRatio' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">MultiPhotoByRatio</button>
+            <button @onclick='CameraByDeviceRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">CameraByDeviceRatio</button>
+            <button @onclick='CameraByRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">CameraByRatio</button>
+            <button @onclick='PhotoByDeviceRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">PhotoByDeviceRatio</button>
+            <button @onclick='PhotoByRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">PhotoByRatio</button>
+            <button @onclick='MultiPhotoByDeviceRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">MultiPhotoByDeviceRatio</button>
+            <button @onclick='MultiPhotoByRatio' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">MultiPhotoByRatio</button>
 
-    <button @onclick='Dialog' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">Dialog</button>
-    <button @onclick='Location' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">Location</button>
-    <button @onclick='Authentication' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">Authentication</button>
-    <button @onclick='RootingCheck' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">RootingCheck</button>
-    <button @onclick='Network' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">Network</button>
-    <button @onclick='QRCodeScan' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">QRCodeScan</button>
-    <button @onclick='NFCReading' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">NFC Reading</button>
-    <button @onclick='SendSMS' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">SendSMS</button>
-    <button @onclick='Notification' style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">Notification</button>
-    <button @onclick='FileDownload'   style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info">FileDownload</button>
-    <button @onclick="UniqueAppID"    style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info"> AppUUID</button>
-    <button @onclick="UniqueDeviceID" style="width: 100%;margin-bottom:10px; height: 50px; font-size : 15px" class="btn btn-info"> UniqueDeviceID</button>
-</body>
+            <button @onclick='Dialog' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">Dialog</button>
+            <button @onclick='Location' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">Location</button>
+            <button @onclick='Authentication' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">Authentication</button>
+            <button @onclick='RootingCheck' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">RootingCheck</button>
+            <button @onclick='Network' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">Network</button>
+            <button @onclick='QRCodeScan' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">QRCodeScan</button>
+            <button @onclick='NFCReading' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">NFC Reading</button>
+            <button @onclick='SendSMS' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">SendSMS</button>
+            <button @onclick='Notification' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">Notification</button>
+            <button @onclick='FileDownload' style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary">FileDownload</button>
+            <button @onclick="UniqueAppID" style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary"> AppUUID</button>
+            <button @onclick="UniqueDeviceID" style="margin-bottom:10px;margin-left:10px;margin-right:10px" class="btn btn-outline-secondary"> UniqueDeviceID</button>
+        </div>
+        <div id="photos"></div>
+    </body>
 @code {
     private async Task ShortToast()
     {

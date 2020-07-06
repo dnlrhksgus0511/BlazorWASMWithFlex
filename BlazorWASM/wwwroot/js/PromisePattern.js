@@ -123,7 +123,13 @@ async function Dialog(promiseHandler) {
     } catch {
         console.log('Dialog() error 발생')
     } finally {
-        promiseHandler.invokeMethodAsync('SetResult', result);
+        if ($flex.isAndroid) {
+            promiseHandler.invokeMethodAsync('SetResult', result.msg);
+        }
+        else {
+            promiseHandler.invokeMethodAsync('SetResult', result);
+        }
+        
     }
 }
 
